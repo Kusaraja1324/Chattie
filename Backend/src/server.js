@@ -19,7 +19,7 @@ const frontendDistPath = path.join(__dirname, "../../Frontend/ChatBot/dist");
 if (fs.existsSync(frontendDistPath)) {
   app.use(express.static(frontendDistPath))
 
-  app.get("/{*splat}", (_req,res)=>{
+ app.get("*", (_req,res)=>{
     res.sendFile(path.join(frontendDistPath, "index.html"));
   })
 }
