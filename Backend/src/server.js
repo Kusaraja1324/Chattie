@@ -11,12 +11,12 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Backend is running successfully 🚀");
-});
+
 app.use("/api/auth", router);
 app.use("/api/message",messageRoutes);
-
+app.get("/", (_req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
 const frontendDistPath = path.join(__dirname, "../../Frontend/ChatBot/dist");
 
 if (fs.existsSync(frontendDistPath)) {
